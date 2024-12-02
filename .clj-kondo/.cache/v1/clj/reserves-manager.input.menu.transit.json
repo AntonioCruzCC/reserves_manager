@@ -1,1 +1,0 @@
-["^ ","~$print-main-menu",["^ ","~:row",6,"~:col",1,"~:fixed-arities",["~#set",[0]],"~:name","^0","~:ns","~$reserves-manager.input.menu","~:top-ns","^7","~:type","~:fn"],"~$handle-main-menu-input",["^ ","^1",8,"^2",1,"^3",["^4",[1]],"^5","^;","^6","^7","^8","^7","^9","^:"],"~:filename","C:\\Users\\anton\\Documents\\reserves_manager\\src\\reserves_manager\\input\\menu.clj"]

@@ -2,6 +2,8 @@
 
 (def ballances (atom []))
 
+(deref ballances)
+
 (defn save [ballance]
   (swap! ballances conj ballance)
   ballance)

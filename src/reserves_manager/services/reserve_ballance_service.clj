@@ -4,7 +4,7 @@
    [reserves-manager.persistance.reserve-ballance-repository :as reserve-ballance-repository]))
 
 (defn create-ballance [reserve ballance-value date]
-  (let [ballance (reserve-ballance-model/->ReserveBallance reserve ballance-value date)]
+  (let [ballance (reserve-ballance-model/->ReserveBallance (dissoc reserve :latestBallance) ballance-value date)]
     (reserve-ballance-repository/save ballance)))
 
 (defn find-latest-ballance [reserve]
