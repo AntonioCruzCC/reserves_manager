@@ -18,5 +18,3 @@
     (let [available-reserves (into [] (map-indexed print-reserve-with-option (reserve-controller/list-reserves)))
           selected-reserve (get-reserve-with-option (read-line) available-reserves)]
       (if (nil? selected-reserve) (recur) (create-new-reserve-option/create-reserve-ballance (:reserve selected-reserve))))))
-
-(handle-option)

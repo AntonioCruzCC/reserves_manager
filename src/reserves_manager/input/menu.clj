@@ -21,5 +21,3 @@
 2-> List reserves;
 3-> Update reserve ballance")
   (handle-main-menu-input (read-line)))
-
-(print-main-menu)

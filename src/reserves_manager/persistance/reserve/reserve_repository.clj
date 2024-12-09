@@ -1,4 +1,4 @@
-(ns reserves-manager.persistance.reserve-repository)
+(ns reserves-manager.persistance.reserve.reserve-repository)
 
 (def reserves (atom []))
 

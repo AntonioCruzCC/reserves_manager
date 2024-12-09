@@ -5,7 +5,7 @@
 
 (defn parse-currency []
   (let [reserve-ballance (parse-double (read-line))]
-    (if (nil? reserve-ballance)
+    (when (nil? reserve-ballance)
       (println "The new reserve ballance must be a number"))
     reserve-ballance))
 
@@ -22,7 +22,7 @@
 (defn handle-option []
   (println "Type the name of the new reserve, or empty to go back")
   (let [reserve-name (read-line)]
-    (if (not-empty reserve-name)
+    (when (not-empty reserve-name)
       (try
         (let [new-reserve (reserve-controller/new-reserve reserve-name)]
           (create-reserve-ballance new-reserve))

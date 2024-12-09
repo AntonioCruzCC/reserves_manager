@@ -1,4 +1,4 @@
-(ns reserves-manager.persistance.reserve-ballance-repository)
+(ns reserves-manager.persistance.reserve-ballance.reserve-ballance-repository)
 
 (def ballances (atom []))
 

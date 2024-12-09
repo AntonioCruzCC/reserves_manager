@@ -1,7 +1,7 @@
 (ns reserves-manager.services.reserve-service
   (:require
    [reserves-manager.models.reserve :as reserve-model]
-   [reserves-manager.persistance.reserve-repository :as reserve-repository]
+   [reserves-manager.persistance.reserve.reserve-repository :as reserve-repository]
    [reserves-manager.services.reserve-ballance-service :as reserve-ballance-service]))
 
 (defn assoc-latest-ballance [reserve]
