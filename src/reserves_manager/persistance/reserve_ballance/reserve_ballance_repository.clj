@@ -13,11 +13,9 @@
 
 (defn find-latest-ballance [reserve]
   (let [reserve-ballances (list-ballances reserve)]
-   	(reduce (fn [latest current]
-                (if (> (.getTime (:date current)) (.getTime (:date latest)))
-                  current
-                  latest))
-              (first reserve-ballances)
-              (rest reserve-ballances))))
-
-
+    (reduce (fn [latest current]
+              (if (> (.getTime (:date current)) (.getTime (:date latest)))
+                current
+                latest))
+            (first reserve-ballances)
+            (rest reserve-ballances))))

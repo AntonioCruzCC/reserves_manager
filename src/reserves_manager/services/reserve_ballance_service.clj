@@ -8,4 +8,7 @@
     (reserve-ballance-repository/save ballance)))
 
 (defn find-latest-ballance [reserve]
-  (reserve-ballance-repository/find-latest-ballance reserve))
+  (let [latest-ballance (reserve-ballance-repository/find-latest-ballance reserve)]
+    (if-not (nil? latest-ballance) 
+      latest-ballance 
+      (reserve-ballance-model/->ReserveBallance reserve 0 (new java.util.Date)))))

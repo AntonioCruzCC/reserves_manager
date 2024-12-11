@@ -13,7 +13,7 @@
 (defn find-by-name [name] (reserve-repository/find-reserve-by-name name))
 
 (defn create-reserve [name]
-  (if (find-by-name name) (throw (Exception. "A reserve with this name already exists!")))
+  (when (find-by-name name) (throw (Exception. "A reserve with this name already exists!")))
   (let [reserve (reserve-model/->Reserve name)]
     (reserve-repository/save reserve)))
 

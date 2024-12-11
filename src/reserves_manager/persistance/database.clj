@@ -6,11 +6,14 @@
                        :system "reserves_manager"
                        :storage-dir "C:/Users/anton/Documents/datomic-databases"}))
 
+(defn get-connection []
+  (d/connect client {:db-name "reserves-manager"}))
+
 (defn start-db
   "Create a database and return the connection"
   []
   (d/create-database client {:db-name "reserves-manager"})
-  (d/connect client {:db-name "reserves-manager"}))
+  (get-connection))
 
 (defn get-schema-from-namespace [namespace]
   (let [ns-symbol (symbol namespace)]
