@@ -1,5 +1,5 @@
-(ns reserves-manager.input.option-handlers.update-reserve-ballance-option
-  (:require 
+(ns reserves-manager.input.option-handlers.update-reserve-balance-option
+  (:require
    [reserves-manager.controllers.reserve-controller :as reserve-controller]
    [reserves-manager.input.option-handlers.create-new-reserve-option :as create-new-reserve-option]))
 
@@ -14,7 +14,11 @@
 
 (defn handle-option []
   (loop []
-    (println "Select the reserve you want to update the ballance")
+    (println "Select the reserve you want to update the balance")
     (let [available-reserves (into [] (map-indexed print-reserve-with-option (reserve-controller/list-reserves)))
           selected-reserve (get-reserve-with-option (read-line) available-reserves)]
-      (if (nil? selected-reserve) (recur) (create-new-reserve-option/create-reserve-ballance (:reserve selected-reserve))))))
+      (if (nil? selected-reserve)
+        (recur)
+        (do
+          (create-new-reserve-option/create-reserve-balance (:reserve selected-reserve))
+          (println "Reserve balance updated successfully!"))))))

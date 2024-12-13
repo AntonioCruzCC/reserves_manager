@@ -1,23 +1,22 @@
 (ns reserves-manager.input.option-handlers.create-new-reserve-option
   (:require
    [reserves-manager.controllers.reserve-controller :as reserve-controller]
-   [reserves-manager.controllers.reserve-ballance-controller :as reserve-ballance-controller]))
+   [reserves-manager.controllers.reserve-balance-controller :as reserve-balance-controller]))
 
 (defn parse-currency []
-  (let [reserve-ballance (parse-double (read-line))]
-    (when (nil? reserve-ballance)
-      (println "The new reserve ballance must be a number"))
-    reserve-ballance))
+  (let [reserve-balance (parse-double (read-line))]
+    (when (nil? reserve-balance)
+      (println "The new reserve balance must be a number"))
+    reserve-balance))
 
-(defn create-reserve-ballance [reserve]
+(defn create-reserve-balance [reserve]
   (loop []
-    (println "Type the current ballance of the new reserve")
-    (let [ballance (parse-currency)]
-      (if (nil? ballance)
+    (println "Type the current balance of the new reserve")
+    (let [balance (parse-currency)]
+      (if (nil? balance)
         (recur)
-        (let [ballace (reserve-ballance-controller/new-ballance reserve ballance (new java.util.Date))]
-          (println "Ballance created and linked to the reserve")
-          (assoc reserve :latestBallance ballace))))))
+        (let [ballace (reserve-balance-controller/new-balance reserve balance (new java.util.Date))]
+          (assoc reserve :latestbalance ballace))))))
 
 (defn handle-option []
   (println "Type the name of the new reserve, or empty to go back")
@@ -25,5 +24,7 @@
     (when (not-empty reserve-name)
       (try
         (let [new-reserve (reserve-controller/new-reserve reserve-name)]
-          (create-reserve-ballance new-reserve))
+          (create-reserve-balance new-reserve)
+          (println "balance created successfully")
+          )
         (catch Exception e (println (.getMessage e)))))))

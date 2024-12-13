@@ -3,7 +3,7 @@
    [reserves-manager.controllers.reserve-controller :as reserve-controller]))
 
 (defn pretty-print-reserve [reserve] 
-  (println "Reserve:"(:name reserve) "Ballance:" (:ballance (:latestBallance reserve))))
+  (println "Reserve:"(:name reserve) "balance:" (:balance (:latestbalance reserve))))
 
 (defn handle-option []
   (println "List of reserves:")
